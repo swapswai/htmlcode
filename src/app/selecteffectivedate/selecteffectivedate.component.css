@@ -1,0 +1,157 @@
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1550px;
+        max-height: 1600px;
+    }
+} 
+
+.searchb
+{
+    margin-left: 900px;
+    margin-top: -40px;
+}
+.addb
+{
+    margin-left: 900px;
+    margin-top: -40px;
+}
+
+.info1 {
+    background-color: #fff;
+    color: #28a745;
+    border-color: #28a745;
+    padding-left:50px;
+    padding-right:50px;
+    border-radius: 16px;
+  }
+  .info1:hover{
+    color:#fff;
+    background-color:#28a745;
+  }
+
+  .info2 {
+    background-color: #fff;
+    color: #28a745;
+    border-color: #28a745;
+    padding-left:50px;
+    padding-right:50px;
+  }
+  .info2:hover{
+    color:#fff;
+    background-color:#28a745;
+  }
+
+.btn-info {
+    color: #28a745;
+    background-color: #fff;
+    border-color: #28a745;
+}
+
+/* .btn-success {
+    color: #28a745 ;
+    background-color: #fff;
+    border-color: #28a745;
+} */
+.container_c
+{
+    margin-top:10px;
+    width: 1550px;
+    height: auto;
+}
+
+.container_d
+{
+    margin-top:10px;
+    width: 100%;
+    height: auto;
+}
+
+.search_numname
+{
+    width: 250px;
+}
+.market
+{
+    margin-left:  30px;
+    
+}
+.region
+{
+    margin-left:  30px;
+    margin-top: -30px;
+}
+.coop
+{
+    margin-left:  30px;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 400px;
+    width: 100%;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    visibility: hidden;
+  }
+  
+
+tbody tr:nth-child(even) {
+    background-color: #FFFFFF;
+ }
+ 
+ tbody tr:nth-child(odd) {
+    background-color: #e9ecef;
+ } 
+
+ .custlabel {
+    margin-top: -50px;
+ }
+
+ .selectmenulabel{
+    margin-top: 20px;
+ }
+
+ .custrow {
+    margin-top: -40px;
+ }
+
+ .round {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background-color: #222;    
+    color: #FFF;
+    text-align: center;  
+}
+.round.round-sm {
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 0.7em;
+}
+.round.blue {
+    background-color: #28a745;
+}
+
+.round.hollow.blue {
+    color: #3EA6CE;   
+    background-color: #FFF;    
+    -webkit-box-shadow: 0px 0px 0px 3px #3EA6CE;
+    -moz-box-shadow: 0px 0px 0px 3px #3EA6CE;
+    box-shadow: 0px 0px 0px 3px #3EA6CE;
+}
+
+.selectMenu {
+
+    visibility: hidden;
+  }
+
+  .nextbtn {
+    margin-bottom: 20px;
+    visibility: hidden;
+  }

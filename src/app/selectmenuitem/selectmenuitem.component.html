@@ -1,0 +1,138 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <app-navbar></app-navbar> -->
+<html>
+    <head>
+        <title>MAIN PAGE</title>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    </head>
+<body>
+<main role="main" class="container container_c border">
+    <h4 class="mt-2">Price, Tax, & Activate</h4>
+    <div class="container container_d border">
+        <br>
+        <div class="row">
+            <div class="col-lg-2 border-right">
+                <div class="row">
+                <div class="col-sm-3" align="left">
+                    <div class="round blue">
+                        <span class="glyphicon">1</span>
+                    </div>
+                </div>
+                <div class="col-sm-9" align="left">
+                    <span><label class="control-label selectmenulabel">SELECT / ADD MENU ITEM</label>
+                        <button (click)="addbtn()" type="button" class="btn btn-success info1">Add >></button>
+
+
+                    </span>
+
+                </div>
+                </div>
+                
+            </div>
+            <div class="col-lg-10 selectMenu" id="selectDiv">
+                <div class="header" >
+                    <div class="row form-group">
+                            <label class="control-label custlabel but1">Select Menu Item</label>
+                            <br/>
+                            <div class="row custrow">
+                                    <div class="col-sm-3 btn-group but1" role="group" aria-label="..." id="myDIV">
+                                            <button (click)="contains_toggle(this)" type="button" id="contains" class="btn btn-success but3" style="border-top-left-radius: 25px; border-bottom-left-radius: 25px" >Contains</button>
+                                            <button (click)="exact_toggle(this)" type="button" class="btn btn-default but3" id="exact" style="border-top-right-radius: 25px;border-bottom-right-radius: 25px" >Exact</button>
+                                    </div> 
+                                    <div class="col-sm-3">
+                                                    <div class="autocomplete-container">
+                                                        <div class="autocomplete-filter-section">
+                                                            <input type="text"  id="s_numnam" placeholder="Search By Menu Item or Name" class="search_numname" [(ngModel)]="filterKey" (keyup)="filterdata()"class="but">
+                                                        </div>
+                                                        <div class="suggestions" *ngIf="filteredItems.length > 0">
+                                                            <div *ngFor="let item of filteredItems">
+                                                                <div class="item">
+                                                                    <a (click)="select(item.name)">{{item.name}}</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                    </div> 
+                                     
+                                    
+<!--                                    <div class="col-sm-3"><input type="text" id="s_numnam" placeholder="Search By Menu Item or Name" class="search_numname" [(ngModel)]="filter"></div> -->
+                                    <div class="col-sm-3"><div class="region">
+                                        <label class="control-label but2" >Class</label>
+                                        <br />
+                                        <select [(ngModel)]="classSearch" value="All" class="but2">
+                                            <option value="All">All</option>
+                                            <option *ngFor="let v of _values1">{{ v.val }}</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                    <div class="col-sm-3 searchb">
+                                            <button (click)="searchbtn()" type="button" class="btn btn-info info1">Search</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tablediv" class="table-responsive table-wrapper-scroll-y" >
+                        <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th></th>
+                                    <th [class.active]="order === 'id'"
+                                    (click)="setOrder('id')">Number<span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span></th>
+                                    <th [class.active]="order === 'name'"
+                                    (click)="setOrder('name')">Name<span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span></th>
+                                    <th [class.active]="order === 'genre'"
+                                    (click)="setOrder('genre')">Class<span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span></th>
+                                  </tr>
+                                  <tr>
+                                        <th><input type="checkbox" class="selectall" /></th>
+                                        <th><input type="text" id="s_num" placeholder="Filter by Item" class="search_numname" [(ngModel)]="idSearch"></th>
+                                        <th><input type="text" id="s_name" placeholder="Filter by Name" class="search_numname" [(ngModel)]="nameSearch"></th>
+                                        <th><select [(ngModel)]="classSearch">
+                                                <option value="All">All</option>
+                                                <option *ngFor="let v of _values1">{{ v.val }}</option>
+                                            </select></th>
+                                      </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let game of games | orderBy: order:reverse:'case-insensitive' | filter: filterKey | filterSearch: idSearch:nameSearch:classSearch:allSearch; let i = index">
+                                    <td><input type="checkbox" class="individual" [(ngModel)]="game.selected" (change)="checkIfAllSelected();"></td>
+                                    <td>{{game.id}}</td>
+                                    <td>{{game.name}}</td>
+                                    <td>{{game.genre}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              
+                    </div>
+                    <br><br><br><br><br><br>
+                    <div class="row custrow">
+                        <div class="col-sm-3 btn-group" role="group" aria-label="..." id="myDIV">
+                           
+                        </div>
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-3 searchb nextbtn" id="nextdiv">
+                          <a routerLink="date" class="btn btn-success info2">Next</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-9">
+                </div>
+        </div>
+        </div>
+
+</main>
+<!-- <app-footer></app-footer> -->
+
+</body>
+</html>
